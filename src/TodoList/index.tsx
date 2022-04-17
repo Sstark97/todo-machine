@@ -1,7 +1,7 @@
 import './TodoList.css'
 import { TodoListProps } from '../types/types';
 
-const TodoList = ({ error, loading, searchedTodos, totalTodos, searchValue, children, onError, onLoading, onEmpty, onEmptySearchValue, render}: TodoListProps) => {
+const TodoList = ({ error, loading, sincronized, searchedTodos, totalTodos, searchValue, children, onError, onLoading, onEmpty, onEmptySearchValue, render}: TodoListProps) => {
   const renderFunc = render || children;
 
   return(
@@ -11,7 +11,7 @@ const TodoList = ({ error, loading, searchedTodos, totalTodos, searchValue, chil
         {(!loading && !searchedTodos && onEmpty())}
         {((!!totalTodos && !searchedTodos.length) && onEmptySearchValue(searchValue))}
 
-        {renderFunc && searchedTodos.map(renderFunc)}
+        {renderFunc && sincronized && searchedTodos.map(renderFunc)}
     </section>
   );
 }

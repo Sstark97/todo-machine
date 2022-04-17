@@ -10,6 +10,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 import { Todo } from '../types/types';
 
 
@@ -26,7 +27,9 @@ function App() {
     totalTodos,
     searchValue,
     setSearchValue,
-    addTodo
+    addTodo,
+    sincronizeTodos,
+    sincronized
   } = useTodos();
   
   return (
@@ -44,6 +47,7 @@ function App() {
         searchedTodos={searchedTodos}
         totalTodos={totalTodos}
         searchValue={searchValue}
+        sincronized={sincronized}
 
         onError={() => <TodosError />}
         onLoading={() => <TodosLoading />}
@@ -81,6 +85,8 @@ function App() {
         setOpenModal={setOpenModal}
         openModal={openModal}
       />
+
+      <ChangeAlertWithStorageListener sincronize={sincronizeTodos} />
     </>
   );
 }

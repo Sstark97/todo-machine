@@ -42,6 +42,7 @@ export interface TodoIconProps {
 };
 
 export interface TodoListProps extends Required<Pick<AllProps, 'error' | 'searchedTodos' | 'loading' | 'searchValue' | 'totalTodos'>>{
+    sincronized: boolean,
     onError():JSX.Element,
     onLoading():JSX.Element,
     onEmpty():JSX.Element,
@@ -49,6 +50,15 @@ export interface TodoListProps extends Required<Pick<AllProps, 'error' | 'search
     render?(todo: Todo):JSX.Element,
     children?(todo: Todo):JSX.Element
 };
+
+export interface ChangeAlertProps {
+    show: boolean,
+    toggleShow():void,
+};
+
+export interface ChangeAlertWithStorageListenerProps {
+    sincronize():void
+}
 
 export interface CreateTodoButtonProps extends Required<Pick<AllProps, 'setOpenModal' | 'openModal'>>{}
 export interface TodoCounterProps extends Required<Pick<AllProps, 'totalTodos' | 'completedTodos' >>{

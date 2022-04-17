@@ -7,8 +7,10 @@ function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
+    sincronizeItem: sincronizeTodos,
     loading,
     error,
+    sincronized
   } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = useState<string>('');
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -56,6 +58,7 @@ function useTodos() {
   return {
       loading,
       error,
+      sincronized,
       totalTodos,
       completedTodos,
       searchValue,
@@ -66,6 +69,7 @@ function useTodos() {
       deleteTodo,
       openModal,
       setOpenModal,
+      sincronizeTodos
     };
 }
 
