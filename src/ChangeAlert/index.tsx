@@ -6,17 +6,19 @@ import "./ChangeAlert.css";
 const ChangeAlert = ({show, toggleShow}: ChangeAlertProps) => {
     if (show) {
         return (
-          <div className="container">
-            <p>Hubo cambios</p>
-            <button
-              onClick={toggleShow}
-            >
-                <div className="sincronize-container">
-                    <span>Sincronizar</span>
-                    <AiOutlineReload />
-                </div>
-            </button>
-          </div>
+            <div className="container">
+              <div className="container-son">
+                <p>Hubo cambios</p>
+                <button
+                  onClick={toggleShow}
+                >
+                    <div className="sincronize-container">
+                        <span>Sincronizar</span>
+                        <AiOutlineReload />
+                    </div>
+                </button>
+              </div>
+            </div>
         );
       } else {
         return null;

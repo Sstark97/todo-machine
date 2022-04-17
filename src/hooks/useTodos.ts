@@ -21,11 +21,9 @@ function useTodos() {
   let searchedTodos: Todo[] = [];
 
   if (searchValue.length <= 1) {
-    console.log(searchValue)
     searchedTodos = todos;
   } else {
     searchedTodos = todos.filter((todo: Todo) => {
-      console.log(searchValue)
       const todoText = todo.text.toLowerCase();
       const searchText = searchValue.toLowerCase();
       return todoText.includes(searchText);

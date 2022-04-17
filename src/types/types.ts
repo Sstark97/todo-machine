@@ -18,7 +18,7 @@ export interface ModalProps {
 }
 
 export interface ChildrenProps extends Required<Pick<AllProps, 'loading'>>{
-    children?: React.ReactNode[];
+    children?: React.ReactNode[]
 };
 
 export interface Todo extends Required<Pick<AllProps, 'deleteTodo' | 'addTodo'>>{
