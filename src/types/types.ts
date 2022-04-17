@@ -13,8 +13,12 @@ export interface AllProps {
     setOpenModal?(value: boolean): void,
 };
 
-export type ChildrenProps = {
+export interface ModalProps {
     children?: React.ReactNode;
+}
+
+export interface ChildrenProps extends Required<Pick<AllProps, 'loading'>>{
+    children?: React.ReactNode[];
 };
 
 export interface Todo extends Required<Pick<AllProps, 'deleteTodo' | 'addTodo'>>{
@@ -47,6 +51,10 @@ export interface TodoListProps extends Required<Pick<AllProps, 'error' | 'search
 };
 
 export interface CreateTodoButtonProps extends Required<Pick<AllProps, 'setOpenModal' | 'openModal'>>{}
-export interface TodoCounterProps extends Required<Pick<AllProps, 'totalTodos' | 'completedTodos'>>{}
+export interface TodoCounterProps extends Required<Pick<AllProps, 'totalTodos' | 'completedTodos' >>{
+    loading?: boolean,
+}
 export interface TodoFormProps extends Required<Pick<AllProps, 'addTodo' | 'setOpenModal'>>{}
-export interface TodoSearchProps extends Required<Pick<AllProps, 'searchValue' | 'setSearchValue'>>{}
+export interface TodoSearchProps extends Required<Pick<AllProps, 'searchValue' | 'setSearchValue'>>{
+    loading?: boolean,
+}

@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
-import { ChildrenProps } from '../types/types';
+import { ModalProps } from '../types/types';
 import './Modal.css';
 
 const Modal = ({
     children,
-  }: ChildrenProps) =>{
+  }: ModalProps) =>{
   return ReactDOM.createPortal(
     <div className="ModalBackground">
       {children}

@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 import { TodoSearchProps } from '../types/types';
 import './TodoSearch.css';
 
-const TodoSearch = ({searchValue, setSearchValue}: TodoSearchProps) => {
+const TodoSearch = ({searchValue, loading, setSearchValue}: TodoSearchProps) => {
   
   const onSearchValueChange = (event: ChangeEvent<HTMLInputElement>) => {
     if(setSearchValue){
@@ -18,6 +18,7 @@ const TodoSearch = ({searchValue, setSearchValue}: TodoSearchProps) => {
       placeholder="Cebolla"
       value={searchValue}
       onChange={onSearchValueChange}
+      disabled={loading}
     />
   );
 }
