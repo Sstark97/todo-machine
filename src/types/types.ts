@@ -37,11 +37,13 @@ export interface TodoIconProps {
     onClick: () => void
 };
 
-export interface TodoListProps extends Required<Pick<AllProps, 'error' | 'searchedTodos' | 'loading'>>{
+export interface TodoListProps extends Required<Pick<AllProps, 'error' | 'searchedTodos' | 'loading' | 'searchValue' | 'totalTodos'>>{
     onError():JSX.Element,
     onLoading():JSX.Element,
     onEmpty():JSX.Element,
-    render(todo: Todo):JSX.Element
+    onEmptySearchValue(toSearch:string):JSX.Element,
+    render?(todo: Todo):JSX.Element,
+    children?(todo: Todo):JSX.Element
 };
 
 export interface CreateTodoButtonProps extends Required<Pick<AllProps, 'setOpenModal' | 'openModal'>>{}
