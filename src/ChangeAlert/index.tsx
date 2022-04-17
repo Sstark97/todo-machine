@@ -1,9 +1,11 @@
-import { WithStorageListener } from "./WithStorageListener"
 import { AiOutlineReload } from "react-icons/ai";
-import { ChangeAlertProps } from "../types/types";
+import { useStorageListenerProps} from "../types/types";
+import { useStorageListener } from "../hooks/useStorageListener";
 import "./ChangeAlert.css";
 
-const ChangeAlert = ({show, toggleShow}: ChangeAlertProps) => {
+const ChangeAlert = ({ sincronize }: useStorageListenerProps) => {
+    const { show, toggleShow } = useStorageListener({sincronize});
+
     if (show) {
         return (
             <div className="container">
@@ -25,6 +27,4 @@ const ChangeAlert = ({show, toggleShow}: ChangeAlertProps) => {
       }
 };
 
-const ChangeAlertWithStorageListener = WithStorageListener(ChangeAlert);
-
-export { ChangeAlertWithStorageListener };
+export { ChangeAlert };

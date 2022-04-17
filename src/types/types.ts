@@ -51,12 +51,7 @@ export interface TodoListProps extends Required<Pick<AllProps, 'error' | 'search
     children?(todo: Todo):JSX.Element
 };
 
-export interface ChangeAlertProps {
-    show: boolean,
-    toggleShow():void,
-};
-
-export interface ChangeAlertWithStorageListenerProps {
+export interface useStorageListenerProps {
     sincronize():void
 }
 
