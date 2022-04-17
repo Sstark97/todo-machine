@@ -1,11 +1,13 @@
 import './TodoList.css'
-import { ChildrenProps } from '../types/types';
+import { TodoListProps } from '../types/types';
 
-const TodoList = ({ children }: ChildrenProps) => (
+const TodoList = ({ error, loading, searchedTodos, onError, onLoading, onEmpty, render}: TodoListProps) => (
     <section>
-      <ul>
-        {children}
-      </ul>
+        {error && onError()}
+        {loading && onLoading()}
+        {(!loading && !searchedTodos.length && onEmpty())}
+
+        {searchedTodos.map(render)}
     </section>
 );
 
