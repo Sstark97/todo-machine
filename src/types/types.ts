@@ -2,7 +2,7 @@ export interface AllProps {
     loading: boolean,
     error: boolean,
     totalTodos: number,
-    completedTodos: any[],
+    completedTodos: number,
     searchValue: string,
     setSearchValue?(text:string):void,
     searchedTodos: any[],
@@ -13,6 +13,22 @@ export interface AllProps {
     setOpenModal?(value: boolean): void,
 };
 
+export interface LocalStorageInitialState extends Required<Pick<AllProps, 'loading' | 'error' >> {
+    sincronized: boolean,
+    item: Todo[]
+};
+
+export interface LocalStoragePayload extends Partial<Pick<LocalStorageInitialState, 'loading' | 'error' | 'sincronized' | 'item'>>{}
+
+export interface LocalStorageAction {
+    type: string,
+    payload?: LocalStoragePayload
+};
+
+export interface LocalStorageReducerObject {
+    [key: string]: (state: LocalStorageInitialState, action: LocalStorageAction) => LocalStorageInitialState,
+}
+
 export interface ModalProps {
     children?: React.ReactNode;
 }
@@ -21,7 +37,7 @@ export interface ChildrenProps extends Required<Pick<AllProps, 'loading'>>{
     children?: React.ReactNode[]
 };
 
-export interface Todo extends Required<Pick<AllProps, 'deleteTodo' | 'addTodo'>>{
+export interface Todo extends Pick<AllProps, 'deleteTodo' | 'addTodo'>{
     text:string
     completed:boolean
 };
